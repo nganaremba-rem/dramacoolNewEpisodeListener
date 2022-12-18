@@ -52,7 +52,10 @@ const checkWebsite = async () => {
   const day = weekday[formattedDate.getDay()];
   if (["Sunday", "Saturday"].includes(day)) {
     try {
-      const browser = await puppeteer.launch({ headless: true });
+      const browser = await puppeteer.launch({
+        headless: true,
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      });
       const page = await browser.newPage();
       await page.goto(url, { waitUntil: "domcontentloaded" });
 
