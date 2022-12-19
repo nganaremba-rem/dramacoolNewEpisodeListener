@@ -50,7 +50,7 @@ const checkWebsite = async () => {
   let formattedDate = new Date(dateToday);
 
   const day = weekday[formattedDate.getDay()];
-  if (["Sunday", "Saturday"].includes(day)) {
+  if (["Sunday", "Saturday", "Monday"].includes(day)) {
     try {
       const browser = await puppeteer.launch({
         headless: true,
